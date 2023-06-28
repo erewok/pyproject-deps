@@ -36,19 +36,17 @@ This library started as a **fork** of the **hugely useful**
 - Displays the latest version of the package next to it
 - Shows all versions (clickable) on the tooltip of the package hovered.
 
-Aims to be fast and simple.
-
 ### Simple settings
 
-It is so **simple** that you do not need any configuration, but if you insist...
+Following are the available configuration options for this extension:
+
+`"pyproject-deps.listPreReleases`: If true, pre-release versions will be listed in hover and at decoration. The default is false.
 
 `"pyproject-deps.errorDecorator`: The text to show when a dependency has errors. Default is `❗️❗️❗`.
 
 `"pyproject-deps.compatibleDecorator`: The text template to show when a dependency is semver compatible. `${version}` will be replaced by the latest version info. Default is `✅`
 
 `"pyproject-deps.incompatibleDecorator`: The text template to show when a dependency is not semver compatible. `${version}` will be replaced by the latest version info. Default is `❌ ${version}`
-
-`"pyproject-deps.listPreReleases`: If true, pre-release versions will be listed in hover and at decoration. The default is false.
 
 ## How to Use
 
@@ -68,7 +66,8 @@ Because this is an alpha project it has not been uploaded the VSCode Extension M
 ## Future Work
 
 - Allow extra index URLs (including private package repos)
-= Allow [PEP 508](https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#declaring-project-metadata)-valid package versions
+- Allow [PEP 508](https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#declaring-project-metadata)-valid package versions
+
 
 ## Thanks to
 

@@ -1,5 +1,9 @@
 ## Get Basic Functionality Working
 
+- Fix docs-url: should be at the top near versions list
+- Fix Semver parsing for Python pre-release packages
+- Keep prefix for version numbers such as "^" when autofilling new values.
+- Evaluate memory usage and trim where we can.
 
 ## Supporting different version specs
 
@@ -22,3 +26,7 @@ cli = [
 ```
 
 - Poetry
+
+## Supporting different mirrors, extra-index-urls, and private repos
+
+See pip's `--extra-index-urls` and the [devpi project](https://pypi.org/project/devpi/).
