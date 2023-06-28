@@ -1,0 +1,132 @@
+{
+  "name": "pyproject-deps",
+  "displayName": "Pyproject Dependencies",
+  "description": "Helps Python developers managing dependencies with pyproject.toml in VSCode.",
+  "version": "0.1.0-alpha.0",
+  "publisher": "erewok",
+  "author": {
+    "name": "erewok",
+    "email": "eraker@gmail.com"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/erewok/pyproject-deps/issues",
+    "email": "eraker@gmail.com"
+  },
+  "homepage": "https://github.com/erewok/pyproject-deps/blob/master/README.md",
+  "engines": {
+    "vscode": "^1.77.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/erewok/pyproject-deps.git"
+  },
+  "icon": "icon.png",
+  "keywords": [
+    "python",
+    "pypi",
+    "pyproject",
+    "pyproject.toml",
+    "toml"
+  ],
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onLanguage:toml",
+    "workspaceContains:pyproject.toml"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "pyproject-deps.replaceVersion",
+        "title": "Do not call manually ! Replaces a aersion of the provided dependency",
+        "category": "Pyproject.toml"
+      },
+      {
+        "command": "pyproject-deps.retry",
+        "title": "Retry to fetch pyproject.toml",
+        "category": "Pyproject.toml"
+      },
+      {
+        "command": "pyproject-deps.updateAll",
+        "title": "Update All dependencies of the pyproject.toml",
+        "category": "Pyproject.toml"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Pyproject Deps",
+      "properties": {
+        "pyproject-deps.errorDecorator": {
+          "type": "string",
+          "scope": "resource",
+          "default": "❗️❗️❗️",
+          "description": "Text shown when a dependency has errors."
+        },
+        "pyproject-deps.incompatibleDecorator": {
+          "type": "string",
+          "scope": "resource",
+          "default": "❌ ${version}",
+          "description": "Text template shown when a dependency is not semver compatible. ${version} will be replaced by the latest version info."
+        },
+        "pyproject-deps.compatibleDecorator": {
+          "type": "string",
+          "scope": "resource",
+          "default": "✅",
+          "description": "The text template shown when a dependency is semver compatible. ${version} will be replaced by the latest version info."
+        },
+        "pyproject-deps.listPreReleases": {
+          "type": "boolean",
+          "scope": "resource",
+          "default": false,
+          "description": "If true, pre-release versions will be available."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run -S esbuild-base -- --minify",
+    "esbuild-base": "rimraf out && esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
+    "build": "npm run -S esbuild-base -- --sourcemap",
+    "watch": "npm run -S esbuild-base -- --sourcemap --watch",
+    "fmt": "prettier --write \"src/**/*.ts\"&& npm run test -- --fix",
+    "test": "jest",
+    "test-compile": "tsc --skipLibCheck --watch -p ./",
+    "test-extension": "node ./dist/test/runTest.js"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "semver": "^7.5.3"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.66.0",
+    "@types/chai": "^4.2.9",
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
+    "@types/jest": "^25.1.3",
+    "@types/jest-cli": "^24.3.0",
+    "@typescript-eslint/parser": "^5.47.1",
+    "chai": "^4.1.2",
+    "esbuild": "^0.16.11",
+    "eslint": "^8.30.0",
+    "eslint-plugin-header": "^3.1.1",
+    "istanbul": "0.4.5",
+    "jest": "^25.1.0",
+    "jest-cli": "^25.1.0",
+    "jest-standard-reporter": "^1.0.4",
+    "prettier": "^2.8.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.9.5",
+    "@vscode/dts": "^0.4.0",
+    "@vscode/test-electron": "^2.3.3",
+    "vscode-test-adapter-api": "^1.9.0"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "arrowParens": "avoid"
+  }
+}

@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "sfdi-events-synd"
+version = "0.7.1"
+description = "Translate Salesforce events from Eventgrid into ordered Eventhub events"
+authors = ["Erik Aker <eaker@mulliganfunding.com>"]
+license = "Copyright Mulligan Funding 2022, All Rights Reserved"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+azure-eventhub = "5.11.2"
+hiredis = "^2.1.1"
+httpx = "0.24.1"
+orjson = "^3.8.3"
+pydantic = "^1.10.4"
+python-dateutil = "^2.8.2"
+python-json-logger = "2.0.7"
+redis = {version = "^4.4.2", extras = ["hiredis"] }
+starlette = "^0.25.0"
+structlog = "^23.1.0"
+uvicorn = {extras = ["standard"], version = "^0.20.0"}
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.2.0"
+pytest-asyncio = "^0.20.3"
+pytest-cov = "^4.0.0"
+pytest-mypy = "^0.10.3"
+pytest-pycodestyle = "^2.3.1"
+
+[tool.poetry.group.dev.dependencies]
+asgi-lifespan = "^1.0.1"
+black = "^22.12.0"
+isort = "^5.10.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pycodestyle]
+ignore = "E203,W503,F541"
+max-line-length = 110
