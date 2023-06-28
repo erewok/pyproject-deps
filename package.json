@@ -42,7 +42,7 @@
     "commands": [
       {
         "command": "pyproject-deps.replaceVersion",
-        "title": "Do not call manually ! Replaces a aersion of the provided dependency",
+        "title": "Do not call manually! Replaces a version of the provided dependency",
         "category": "Pyproject.toml"
       },
       {
