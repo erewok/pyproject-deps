@@ -67,6 +67,24 @@ Because this is an alpha project it has not been uploaded the VSCode Extension M
 
 - Allow extra index URLs (including private package repos)
 - Allow [PEP 508](https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#declaring-project-metadata)-valid package versions
+- Parse [PEP 621]()-style dependencies
+
+Example of PEPs 508 and 621 dependencies:
+
+```toml
+dependencies = [
+  "httpx",
+  "gidgethub[httpx]>4.0.0",
+  "django>2.1; os_name != 'nt'",
+  "django>2.0; os_name == 'nt'"
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest < 5.0.0",
+  "pytest-cov[all]"
+]
+```
 
 
 ## Thanks to

@@ -1,13 +1,49 @@
+[project]
+name = "spam"
+version = "2020.0.0"
+description = "Lovely Spam! Wonderful Spam!"
+readme = "README.rst"
+requires-python = ">=3.8"
+license = {file = "LICENSE.txt"}
+keywords = ["egg", "bacon", "sausage", "tomatoes", "Lobster Thermidor"]
+authors = [
+  {email = "hi@pradyunsg.me"},
+  {name = "Tzu-ping Chung"}
+]
+maintainers = [
+  {name = "Brett Cannon", email = "brett@python.org"}
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python"
+]
+dependencies = [
+  "httpx",
+  "asyncclick=^8.1.3.4",
+  "gidgethub[httpx]>4.0.0",
+  "django>2.1; os_name != 'nt'",
+  "django>2.0; os_name == 'nt'",
+  'requests [security,tests] >= 2.8.1, == 2.8.* ; python_version < "2.7"'
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest < 5.0.0",
+  "pytest-cov[all]"
+]
+
 [tool.poetry]
-name = "sfdi-events-synd"
-version = "0.7.1"
-description = "Translate Salesforce events from Eventgrid into ordered Eventhub events"
-authors = ["Erik Aker <eaker@mulliganfunding.com>"]
-license = "Copyright Mulligan Funding 2022, All Rights Reserved"
+name = "spam"
+version = "1.0.0"
+description = "Sample application"
+authors = ["Erik Aker <eraker@gmail.com>"]
+
 
 [tool.poetry.dependencies]
 python = "^3.11"
+asyncclick = "^8.1.3.4"
 azure-eventhub = "5.11.2"
+calver = "2022.6.26"
 hiredis = "^2.1.1"
 httpx = "0.24.1"
 orjson = "^3.8.3"
